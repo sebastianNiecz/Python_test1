@@ -8,11 +8,11 @@ class Hooks:
         BrowserDriver.initialize_browser()
 
     @staticmethod
-    def before_testrun():
+    def before_feature():
         BrowserDriver.initialize_browser()
 
     @staticmethod
-    def after_testrun():
+    def after_feature():
         BrowserDriver.close_browser()
 
     @staticmethod
