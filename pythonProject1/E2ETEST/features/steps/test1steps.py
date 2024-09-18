@@ -11,7 +11,7 @@ def i_am_a_user_on_the_specified_page(page_name):
 
 @when(u'I should see search button')
 def should_see_search_button():
-    page_base.find_specified_element(button_locator)
+    assert page_base.find_specified_element(button_locator) == True
 
 @when(u'I should see name of the button {locator_name}')
 def i_should_see_name_of_the_button(locator_name):

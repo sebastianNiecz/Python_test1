@@ -16,7 +16,7 @@ class PageBase:
     @staticmethod
     def find_specified_element(element):
         PageBase.wait.until(EC.visibility_of_element_located(element))
-        return PageBase.browser_driver.find_element(By.XPATH,element) == True
+        return PageBase.browser_driver.find_element(By.XPATH,element)
 
     @staticmethod
     def get_text(locator):
