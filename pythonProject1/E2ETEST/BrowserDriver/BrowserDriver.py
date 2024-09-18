@@ -1,5 +1,8 @@
+from adodbapi.examples.xls_read import driver
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class BrowserDriver:
@@ -8,7 +11,10 @@ class BrowserDriver:
     def initialize_browser():
         chrome_option = Options()
         chrome_option.add_argument("--disable-extensions")
-        driver = webdriver.Chrome(options = chrome_option)
+        chrome_option.add_argument("--start-maximized")
+        chrome_option.add_argument("--disable-infobars")
+        chrome_option.add_argument("--incognito")
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options = chrome_option)
         driver.implicitly_wait(10)
         return driver
 
