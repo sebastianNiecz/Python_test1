@@ -5,7 +5,7 @@ page_base = PageBase()
 button_locator = "//div[@class='FPdoLc lJ9FBc']//input[@name='btnK']"
 input_locator = "//textarea[@id='APjFqb']"
 
-@given(u'I am a user on the specified {page} page')
+@given(u'I am a user on the specified "{page}" page')
 def i_am_a_user_on_the_specified_page(context, page):
     page_base.go_to_specified_page(page)
 

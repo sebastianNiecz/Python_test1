@@ -2,14 +2,18 @@ from selenium.webdriver.common.by import By
 from BrowserDriver.BrowserDriver import BrowserDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 class PageBase:
     browser_driver = BrowserDriver()
     wait = WebDriverWait(browser_driver.driver, 10)
 
     def go_to_specified_page(self, page):
+        accept_all_button = "//button[@id='L2AGLb']"
         self.browser_driver.initialize_browser()
         self.browser_driver.go_to_page(page)
+        time.sleep(2)
+        self.click(accept_all_button)
 
     @staticmethod
     def find_specified_element(element):
@@ -26,6 +30,6 @@ class PageBase:
         element.clear()
         element.send_keys(name)
 
-    @staticmethod
-    def click(locator):
-        PageBase.wait.until(EC.visibility_of_element_located((By.XPATH, locator))).click()
+ #   @staticmethod
+    def click(self, locator):
+        self.wait.until(EC.visibility_of_element_located((By.XPATH, locator))).click()
