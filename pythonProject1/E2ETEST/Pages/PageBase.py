@@ -7,8 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 class PageBase:
     browser_driver = BrowserDriver().initialize_browser()
     wait = WebDriverWait(BrowserDriver.initialize_browser(), 10)
-    button_locator = "//div[@class='FPdoLc lJ9FBc']//input[@name='btnK']"
-    input_locator = "//textarea[@id='APjFqb']"
 
 
     @staticmethod
