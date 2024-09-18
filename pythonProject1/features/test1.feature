@@ -9,6 +9,6 @@ Feature: Test1
     And I click search button
     Then I should see found page name "<page_name>"
 
-    Examples:
-      | page    | name            |company_name|page_name|
-      | google  | Szukaj w google |energotest  |www.spie-energotest.pl|
+  Examples:
+    | page                  | name            | company_name | page_name              |
+    | https://www.google.pl | Szukaj w google | energotest   | www.spie-energotest.pl |

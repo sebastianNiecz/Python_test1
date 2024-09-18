@@ -1,22 +1,20 @@
 from selenium.webdriver.common.by import By
-from E2ETEST.BrowserDriver.BrowserDriver import BrowserDriver
+from BrowserDriver.BrowserDriver import BrowserDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 class PageBase:
-    browser_driver = BrowserDriver().initialize_browser()
-    wait = WebDriverWait(BrowserDriver.initialize_browser(), 10)
+    browser_driver = BrowserDriver()
+    wait = WebDriverWait(browser_driver.driver, 10)
 
-
-    @staticmethod
-    def go_to_specified_page(page_name):
-        BrowserDriver.go_to_page(page_name)
+    def go_to_specified_page(self, page):
+        self.browser_driver.initialize_browser()
+        self.browser_driver.go_to_page(page)
 
     @staticmethod
     def find_specified_element(element):
         PageBase.wait.until(EC.visibility_of_element_located(element))
-        return PageBase.browser_driver.find_element(By.XPATH,element)
+        PageBase.browser_driver.driver.find_element(By.XPATH,element)
 
     @staticmethod
     def get_text(locator):

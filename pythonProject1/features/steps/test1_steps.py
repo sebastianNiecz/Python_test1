@@ -1,13 +1,13 @@
 from behave import *
-from E2ETEST.Pages.PageBase import PageBase
+from Pages.PageBase import PageBase
 
 page_base = PageBase()
 button_locator = "//div[@class='FPdoLc lJ9FBc']//input[@name='btnK']"
 input_locator = "//textarea[@id='APjFqb']"
 
 @given(u'I am a user on the specified {page} page')
-def i_am_a_user_on_the_specified_page(page_name):
-    page_base.go_to_specified_page(page_name)
+def i_am_a_user_on_the_specified_page(context, page):
+    page_base.go_to_specified_page(page)
 
 @when(u'I should see search button')
 def should_see_search_button():
@@ -26,7 +26,7 @@ def i_set_name_in_search_element_input(company_name):
 def i_click_search_button():
      page_base.click(button_locator)
 
-@when(u'I should see found page name {page_name}')
+@then(u'I should see found page name {page_name}')
 def i_should_see_found_page_name(page_name):
         searched_page = "$//*[text()[contains(.,'{page_name}')]]"
         var = PageBase.find_specified_element(searched_page)
