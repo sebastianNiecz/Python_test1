@@ -13,6 +13,7 @@ class BrowserDriver:
         chrome_option.add_argument("--start-maximized")
         chrome_option.add_argument("--disable-infobars")
         chrome_option.add_argument("--incognito")
+        chrome_option.add_argument("--disable-search-engine-choice-screen")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options = chrome_option)
         driver.implicitly_wait(10)
         return driver
